@@ -17,6 +17,9 @@ cd Fan_HAT/python/
 python3 main.py
 
 # A systemd unit
+sudo vi /etc/systemd/system/pwm-led.service
+
+# Paste the below, save and quit
 
 [Unit]
 Description=pwm-led
