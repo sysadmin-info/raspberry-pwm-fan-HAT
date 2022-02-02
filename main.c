@@ -139,16 +139,16 @@ int main(void)
                 Paint_DrawString_EN(80, 15, "C", &Font12, BLACK, WHITE);
 
                 OLED_Display(Image);
-                if(temp > 40){
-                        PCA9685_setPWM(0, 40);
-                }else if(temp > 50){
-                        PCA9685_setPWM(0, 50);
-                }else if(temp > 55){
-                        PCA9685_setPWM(0, 75);
+                if(temp > 65){
+                        PCA9685_setPWM(0, 100);
                 }else if(temp > 60){
                         PCA9685_setPWM(0, 90);
-                }else if(temp > 65){
-                        PCA9685_setPWM(0, 100);
+                }else if(temp > 55){
+                        PCA9685_setPWM(0, 75);
+                }else if(temp > 50){
+                        PCA9685_setPWM(0, 50);
+                }else if(temp > 40){
+                        PCA9685_setPWM(0, 40);
                 }else{
                         PCA9685_setPWM(0, 0);
                 }
