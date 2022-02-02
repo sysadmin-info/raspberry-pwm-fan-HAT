@@ -14,6 +14,7 @@ make clean
 make
 sudo ./main
 
+# A systemd unit
 sudo vi /etc/systemd/system/pwm-led.service
 
 # Paste the below, save and quit
