@@ -1,0 +1,34 @@
+# Guide for python installation for Raspbian 11 (bulsseye)
+
+sudo apt update
+sudo apt install python3-pip
+pip3 install pillow
+pip3 install numpy
+sudo apt install libopenjp2-7
+sudo apt install libtiff5
+sudo apt install libatlas-base-dev
+pip3 install RPi.GPIO
+pip3 install smbus
+cd
+sudo apt install p7zip-full
+wget https://www.waveshare.com/w/upload/0/06/Fan_HAT.7z
+7z x Fan_HAT.7z  -r -o./Fan_HAT
+cd Fan_HAT/python/
+python3 main.py
+
+# A systemd unit
+
+[Unit]
+Description=pwm-led
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u main.py
+WorkingDirectory=/home/pi/Fan_HAT/python/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
