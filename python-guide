@@ -32,3 +32,11 @@ User=pi
 
 [Install]
 WantedBy=multi-user.target
+
+# At the end reload the daemon , enable and start the service
+
+sudo systemctl daemon-reload
+sudo systemctl enable pwm-led.service
+
+#Restart Raspberry
+sudo reboot
