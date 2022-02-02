@@ -44,16 +44,16 @@ try:
                 print("temp : %.2f" %temp)
                 draw.text((85,16), str(temp), font=font, fill = 0)
 
-                if(temp > 40):
-                        pwm.setServoPulse(0,10)
-                elif(temp > 50):
-                        pwm.setServoPulse(0,50)
-                elif(temp > 55):
-                        pwm.setServoPulse(0,75)
-                elif(temp > 60):
-                        pwm.setServoPulse(0,90)
-                elif(temp > 65):
+                if(temp > 65):
                         pwm.setServoPulse(0,100)
+                elif(temp > 60):
+                        pwm.setServoPulse(0,80)
+                elif(temp > 55):
+                        pwm.setServoPulse(0,60)
+                elif(temp > 50):
+                        pwm.setServoPulse(0,20)
+                elif(temp > 35):
+                        pwm.setServoPulse(0,10)
                 else:
                         pwm.setServoPulse(0,0)
                 #show
