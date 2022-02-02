@@ -96,7 +96,8 @@ int main(void)
         DEV_ModuleInit();
         DEV_I2C_Init();
 
-        PCA9685_Init(1000);
+        # very important frequency that is set exactly the same as in C version. By default is 50 and in C version is 1000 - means the C version is quieter. 
+        PCA9685_Init(60);
         PCA9685_setPWM(0, 100);
 
         printf("oled init\r\n");
@@ -142,13 +143,13 @@ int main(void)
                 if(temp > 65){
                         PCA9685_setPWM(0, 100);
                 }else if(temp > 60){
-                        PCA9685_setPWM(0, 90);
-                }else if(temp > 55){
-                        PCA9685_setPWM(0, 75);
-                }else if(temp > 50){
-                        PCA9685_setPWM(0, 50);
-                }else if(temp > 40){
-                        PCA9685_setPWM(0, 40);
+                        PCA9685_setPWM(0, 80);
+                }else if(temp > 52){
+                        PCA9685_setPWM(0, 60);
+                }else if(temp > 45){
+                        PCA9685_setPWM(0, 20);
+                }else if(temp > 39){
+                        PCA9685_setPWM(0, 10);
                 }else{
                         PCA9685_setPWM(0, 0);
                 }
