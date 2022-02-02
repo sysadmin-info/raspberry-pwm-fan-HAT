@@ -48,11 +48,11 @@ try:
                         pwm.setServoPulse(0,100)
                 elif(temp > 60):
                         pwm.setServoPulse(0,80)
-                elif(temp > 55):
+                elif(temp > 52):
                         pwm.setServoPulse(0,60)
-                elif(temp > 50):
+                elif(temp > 45):
                         pwm.setServoPulse(0,20)
-                elif(temp > 40):
+                elif(temp > 38):
                         pwm.setServoPulse(0,10)
                 else:
                         pwm.setServoPulse(0,0)
