@@ -52,7 +52,7 @@ try:
                         pwm.setServoPulse(0,60)
                 elif(temp > 50):
                         pwm.setServoPulse(0,20)
-                elif(temp > 35):
+                elif(temp > 40):
                         pwm.setServoPulse(0,10)
                 else:
                         pwm.setServoPulse(0,0)
