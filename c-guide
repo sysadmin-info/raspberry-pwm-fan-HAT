@@ -1,0 +1,47 @@
+cd
+wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
+tar zxvf bcm2835-1.60.tar.gz 
+cd bcm2835-1.60/
+sudo ./configure
+sudo make && sudo make check && sudo make install
+cd
+sudo apt-get install p7zip-full
+wget https://www.waveshare.com/w/upload/0/06/Fan_HAT.7z
+7z x Fan_HAT.7z  -r -o./Fan_HAT
+cd
+cd Fan_HAT/c/
+make clean 
+make
+sudo ./main
+
+sudo vi /etc/systemd/system/pwm-led.service
+
+# Paste the below, save and quit
+
+[Unit]
+Description=pwm-led
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/bash /home/pi/Fan_HAT/pwm.sh
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+sudo vi /home/pi/Fan_HAT/pwm.sh
+
+# Paste the below, save and quit
+
+#!/bin/bash
+sudo /home/pi/Fan_HAT/c/main &
+
+# At the end reload the daemon , enable and start the service
+
+sudo systemctl daemon-reload
+sudo systemctl enable pwm-led.service
+
+#Restart Raspberry
+sudo reboot
