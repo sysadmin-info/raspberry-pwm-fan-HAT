@@ -14,7 +14,8 @@ try:
         oled = SSD1306.SSD1306()
 
         pwm = PCA9685.PCA9685(0x40, debug=False)
-        pwm.setPWMFreq(50)
+        # very important frequency that is set exactly the same as in C version. By default is 50 and in C version is 1000 - means the C version is quieter. 
+        pwm.setPWMFreq(60)
         pwm.setServoPulse(0,100)
 
         # Initialize library.
@@ -52,7 +53,7 @@ try:
                         pwm.setServoPulse(0,60)
                 elif(temp > 45):
                         pwm.setServoPulse(0,20)
-                elif(temp > 38):
+                elif(temp > 39):
                         pwm.setServoPulse(0,10)
                 else:
                         pwm.setServoPulse(0,0)
