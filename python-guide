@@ -28,6 +28,7 @@ sudo vi /etc/systemd/system/pwm-led.service
 [Unit]
 Description=pwm-led
 After=network-online.target
+Wants=network-online.target
 
 [Service]
 ExecStart=/usr/bin/python3 -u main.py
