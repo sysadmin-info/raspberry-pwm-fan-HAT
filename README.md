@@ -7,5 +7,3 @@ PCA9685_Init (1000);
 
 Python:
 pwm.setPWMFreq (50)
-
-I use it together with this device bought in Poland: https://allegro.pl/oferta/wentylator-pwm-oled-dla-raspberry-pi-pca9685-9971953722
