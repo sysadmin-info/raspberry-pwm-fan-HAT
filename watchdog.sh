@@ -7,7 +7,7 @@ do
           if [ "${STATUS}" = "active" ]; then
                   echo "Service Fan Hat is running..."
           else
-                  echo " Service Fan Hat is not running.... so exiting "
+                  echo " Service Fan Hat is not running.... so restarting "
                   systemctl restart pwm-led.service;
           fi
   fi
