@@ -7,3 +7,6 @@ PCA9685_Init (1000);
 
 Python:
 pwm.setPWMFreq (50)
+
+Add watchdog to crontab
+@reboot /root/watchdog.sh
